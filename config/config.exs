@@ -47,6 +47,24 @@ config :logger, :console,
 # Use Jason for JSON parsing in Phoenix
 config :phoenix, :json_library, Jason
 
+# config :send_mailer, SendMailer.Services.Email.EmailServer,
+  # adapter: Bamboo.SMTPAdapter,
+  # server: "smtp.ethereal.email",
+  # hostname: "smtp.ethereal.email",
+  # domain: "ethereal.email"
+  # port: 587,
+  # username: "",
+  # password: "", 
+  # authentication: :plain,
+  # enable_starttls_auto: true,
+  # sandbox: false
+
+  #Bamboo email Sendgrid
+
+config :send_mailer, SendMailer.Services.Email.EmailServer,
+  adapter: Bamboo.SendGridAdapter,
+  api_key: ""
+
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
 import_config "#{config_env()}.exs"
