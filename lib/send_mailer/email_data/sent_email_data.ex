@@ -4,7 +4,7 @@ defmodule SendMailer.EmailData.SentEmailData do
 
   schema "sent_email_data" do
     field :exam_code, :string
-    field :payload, :string
+    field :payload, :map
     field :type_email, :string
 
     timestamps()
