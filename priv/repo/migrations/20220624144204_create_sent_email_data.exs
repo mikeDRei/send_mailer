@@ -5,7 +5,7 @@ defmodule SendMailer.Repo.Migrations.CreateSentEmailData do
     create table(:sent_email_data) do
       add :exam_code, :string
       add :type_email, :string
-      add :payload, :text
+      add :payload, :map
 
       timestamps()
     end
