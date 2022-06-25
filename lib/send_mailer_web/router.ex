@@ -22,11 +22,6 @@ defmodule SendMailerWeb.Router do
 
   scope "/api", SendMailerWeb do
     pipe_through :api
-    resources "/sent_email_data", SentEmailDataController, except: [:new, :edit]
-  end
-
-  scope "/api", SendMailerWeb do
-    pipe_through :api
     post "/send_email", EmailController, :send_email
   end
 
