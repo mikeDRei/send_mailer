@@ -1,0 +1,57 @@
+<html>
+  <head>
+  <style>
+    .body {
+      color: #000000 !important;
+      font-family: Roboto;
+      font-size: 24px;
+      max-width: 1064px;
+      padding: 15px;
+    }
+    b, p, div, span {
+      color: black !important;
+    }
+    img{
+      width: 300px;
+      Height: 125.24px;
+    }
+    .greeting {
+      font-size: 32px;
+      line-height: 38px;
+      text-align: center;
+      margin-bottom: 90px;
+    }
+    .logo {
+      margin: 40px 0 52px;
+      text-align: center;
+    }
+    .info {
+      color: #000000 !important;
+      font-size: 24px;
+      margin: -20px 0 50px;
+      padding-right: 4px;
+      padding-bottom: 28px;
+      padding-left: 42px;
+      width: 974px;
+      height: calc(100% - 40px);
+    }
+      </style>
+  </head>
+  <body>
+    <div class="body">
+      <p class="logo">
+        <img src="https://miro.medium.com/max/800/0*ahZBVx3Z1eJRXDv1.png">
+      </p>
+
+      <p class="greeting">
+        <b>Hello!!</b>
+      </p>
+      <p> text content <%= @email_args["other_values"]["exam-code"] %> </p>
+
+      <div class="info">
+      <p>Welcome to the proof of concept on sending email with elixir and sendgrid</p> <br>
+      <img src="https://image.slidesharecdn.com/elixir-160822190435/85/elixir-o-que-existe-atrs-do-mistrio-24-320.jpg?cb=1471893669">
+      </div>
+    </div>
+  </body>
+<html>
