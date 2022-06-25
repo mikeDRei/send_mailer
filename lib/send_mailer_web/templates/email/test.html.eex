@@ -46,7 +46,9 @@
       <p class="greeting">
         <b>Hello!!</b>
       </p>
-      <p> text content <%= @email_args["other_values"]["exam-code"] %> </p>
+      <p> my name is: <%= @email_args["other_values"]["name"] %> </p>
+      <p> my age: <%= @email_args["other_values"]["age"] %> </p>
+      <p> my favorite language: <%= @email_args["other_values"]["language"] %> </p>
 
       <div class="info">
       <p>Welcome to the proof of concept on sending email with elixir and sendgrid</p> <br>

@@ -1,7 +1,6 @@
 defmodule SendMailerWeb.EmailView do
   use SendMailerWeb, :view
   alias SendMailerWeb.EmailView
-  # email_args = %{"attachment_links" => ["asasas"], "bcc" => ["michaalvesreino@gmail.com"], "cc" => ["michaalvesreino@gmail.com"], "content" => "<h2>asasas</h2>", "email_name" => "test", "from" => "michaalvesreino@gmail.com", "other_values" => %{"exam-core" => "454545"}, "subject" => "Welcome!!", "to" => ["michaelalvesreino@gmail.com"]}
 
   def render("index.json", %{email_args: email_args}) do
     %{data: render_many(email_args, EmailView, "email_args.json")}
