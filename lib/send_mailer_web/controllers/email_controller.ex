@@ -8,19 +8,16 @@ defmodule SendMailerWeb.EmailController do
   action_fallback SendMailerWeb.FallbackController
 
 
-  def send_email(conn, %{"send_email" => email_params}) do
+  def send_email(conn, %{"email_args" => email_params}) do
     try do
-      send_email =  Email.SendEmail.changeset(%SendEmail{}, email_params).changes
-      
       if(SendEmail.changeset(%SendEmail{}, email_params).valid?) do
-        EmailServer.send_email_from(send_email)
-        IO.inspect send_email
+        EmailServer.send_email_from(email_params)
         conn
         |> put_status(:ok)
         |> json(%{
           message: "Email successfully sent!",
           status: 200,
-          email_content: send_email
+          email_content: email_params
         })
       else
         conn
