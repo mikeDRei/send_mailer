@@ -49,7 +49,8 @@ defmodule SendMailer.MixProject do
       {:gettext, "~> 0.18"},
       {:jason, "~> 1.2"},
       {:plug_cowboy, "~> 2.5"},
-      {:bamboo, "~> 1.6"},
+      {:bamboo, "~> 1.7.1"},
+      {:bamboo_smtp, "~> 3.0.0"},
       {:ex_machina, "~> 2.7.0"}
     ]
   end
