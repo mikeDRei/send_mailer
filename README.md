@@ -1,19 +1,53 @@
 # SendMailer
 
-To start your Phoenix server:
+## Run Project
 
-  * Install dependencies with `mix deps.get`
-  * Create and migrate your database with `mix ecto.setup`
-  * Start Phoenix endpoint with `mix phx.server` or inside IEx with `iex -S mix phx.server`
-
-Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
-
-Ready to run in production? Please [check our deployment guides](https://hexdocs.pm/phoenix/deployment.html).
-
-## Learn more
-
-  * Official website: https://www.phoenixframework.org/
-  * Guides: https://hexdocs.pm/phoenix/overview.html
-  * Docs: https://hexdocs.pm/phoenix
-  * Forum: https://elixirforum.com/c/phoenix-forum
-  * Source: https://github.com/phoenixframework/phoenix
+```bash
+mix deps.get
+mix deps.compile
+mix phx.server
+```
+# Config
+```elixir
+config :send_mailer, SendMailer.Service.EmailServer,
+  adapter: Bamboo.SendGridAdapter,
+  api_key: "your api key sendgrid"
+```
+# Test API
+## params
+route api: /api/send_email
+```json
+{
+  "email_args": {
+	  "from": "example@gmail.com",
+	  "to": [
+		  "exampleto@gmail.com"
+    ],
+    "cc": [
+      "bccexample@gmail.com"
+    ],
+    "subject": "Welcome!!",
+    "content": "content body email",
+    "email_name": "template eex name",
+    "other_values": {
+      "param1": "param1",
+      "param2": "param2",
+      "param2": "param3"
+    }
+  }
+}
+```
+# Template test
+you can create an ex-like test template and add elixir code to populate the html tags
+```html
+<html>
+  <head>
+  </head>
+  <body>
+    <div>
+      <p> Welcome!! </p>
+      <p> Test <%= @email_args["content"]%> </p>
+    </div>
+  </body>
+</html>
+```
