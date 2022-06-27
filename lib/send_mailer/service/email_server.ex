@@ -16,8 +16,7 @@ defmodule SendMailer.Service.EmailServer do
       |> render(email_args["email_name"] <> ".html")
       |> deliver_now()
     rescue
-      e ->
-        raise "incorrect parameter error #{e.message}"
+      e in RuntimeError -> IO.puts("An error occurred: " <> e.message)
     end
   end
 
