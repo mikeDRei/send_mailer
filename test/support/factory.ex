@@ -28,12 +28,4 @@ defmodule SendMailer.Factory do
       "attachment_links" => ["teste attachment_links"]
     }
   end
-
-  def set_email_data_factory do
-    %SendMailer.EmailData.SentEmailData{
-    "exam_code" => "454545",
-    "payload" => %{"exam_code" => "45454", "name" => "michael"},
-    "type_email" => "test type email"
-    }
-  end
 end
