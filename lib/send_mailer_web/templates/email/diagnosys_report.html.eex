@@ -1,0 +1,98 @@
+<html>
+  <head>
+  <style>
+    .body {
+      color: #000000;
+      font-family: Roboto;
+      font-size: 24px;
+      max-width: 1064px;
+      padding: 15px;
+    }
+    b, p, div, span {
+      color: black !important;
+    }
+    .logo {
+      margin: 40px 0 52px;
+      text-align: center;
+    }
+    .greeting {
+      font-size: 32px;
+      line-height: 38px;
+      text-align: center;
+      margin-bottom: 90px;
+    }
+    .exam-info {
+      background-color: #F4F4F4;
+      color: #000000;
+      font-size: 24px;
+      padding-right: 4px;
+      padding-bottom: 28px;
+      padding-left: 42px;
+      width: 974px;
+      height: calc(100% - 80px);
+    }
+    .link a {
+      padding: 33px 40px;
+      text-align: center;
+    }
+    .info {
+      font-family: 'Roboto';
+      font-style: normal;
+      font-weight: 400;
+      font-size: 24px;
+      line-height: 30px;
+      text-align: center;
+    }
+    .footer {
+      color: #868686;
+      font-size: 19px;
+      margin-top: 30px;
+      line-height: 22px;
+      font-weight: 400;
+      text-align: center;
+      text-align: center;
+      font-family: 'Roboto';
+    }
+      </style>
+  </head>
+  <body>
+    <div class="body">
+      <p class="logo">
+        <img src="https://github.com/mikeDRei/repo_image/blob/main/logotipoRosa.png?raw=true"
+          alt="logotipo.png" style = "width: 300px; height: 126px;" />
+      </p>
+
+      <p class="greeting">
+        <b>Navegabilidade</b>
+      </p>
+
+      <p style="margin-left:40px; margin-top:35px">Olá,</p>
+
+      <p class="exam-info" style="line-height: 60px;  margin: -20px 0 50px;">
+        O exame <b><%= @email_args["other_values"]["exam_code"] %> - <%= @email_args["other_values"]["patient_name"] %></b> foi laudado como:<br>
+        <b> <%= @email_args["other_values"]["title"] %> / <%= @email_args["other_values"]["subtitle"] %></b> <br>
+        Paciente faz acompanhamento com cardiologista? <b> <%= @email_args["other_values"]["cardiologist_follow_up"] %> </b>
+      </p>
+      
+      <p class="exam-info" style="line-height: 30px;  margin: -80px 0 50px;">
+        <b> Laudo </b> <br>
+        <% report_content = listReportContent(@email_args["other_values"]["report_content"], "\\n")%>
+        <%= report_content |> Enum.intersperse(Phoenix.HTML.Tag.tag(:br))%>
+      </p>
+
+      <p class="link">
+        <a href="https://app.neomed.tech"><img src="https://github.com/mikeDRei/repo_image/blob/main/details_btn.png?raw=true"
+          alt="logotipo.png" style = "width: calc(100% - 80px); height: 125px;" /> </a>
+      </p>
+
+      <p class="info">
+        Em caso de dúvidas, estamos a disposição para maiores esclarecimentos
+      </p>
+
+      <p class="footer">
+        Este e-mail foi enviado automaticamente pelo sistema. Favor não responder <br>
+        Em caso de dúvidas entre em contato através de atendimento@neomed.tech
+      </p>
+    </div>
+  </body>
+<html>
