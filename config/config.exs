@@ -48,22 +48,22 @@ config :logger, :console,
 config :phoenix, :json_library, Jason
 
 # config :send_mailer, SendMailer.Service.EmailServer,
-  # adapter: Bamboo.SMTPAdapter,
-  # server: "smtp.ethereal.email",
-  # hostname: "smtp.ethereal.email",
-  # domain: "ethereal.email"
-  # port: 587,
-  # username: "",
-  # password: "", 
-  # authentication: :plain,
-  # enable_starttls_auto: true,
-  # sandbox: false
+#   adapter: Bamboo.SMTPAdapter,
+#   server: "smtp.ethereal.email",
+#   hostname: "smtp.ethereal.email",
+#   port: 587,
+#   username: "",
+#   password: "",
+#   authentication: :plain,
+#   enable_starttls_auto: true,
+#   sandbox: false
 
-  #Bamboo email Sendgrid
+
+#Bamboo email Sendgrid
 
 config :send_mailer, SendMailer.Service.EmailServer,
   adapter: Bamboo.SendGridAdapter,
-  api_key: ""
+  api_key: System.get_env("SENDGRID_APY_KEY")
 
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
