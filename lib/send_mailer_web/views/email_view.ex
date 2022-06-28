@@ -12,7 +12,6 @@ defmodule SendMailerWeb.EmailView do
 
   def render("email_args.json", %{email_args: email_args}) do
     %{
-      from: email_args.cc,
       cc: email_args.cc,
       bcc: email_args.bcc,
       to: email_args.to,
