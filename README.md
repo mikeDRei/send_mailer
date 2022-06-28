@@ -39,6 +39,7 @@ route api: /api/send_email
 ```
 # Template test
 you can create an ex-like test template and add elixir code to populate the html tags
+
 ```html
 <html>
   <head>
@@ -50,4 +51,10 @@ you can create an ex-like test template and add elixir code to populate the html
     </div>
   </body>
 </html>
+```
+# Environment Variables
+
+```bash
+export SENDGRID_APY_KEY=''
+export DATABASE_PASSWORD=''
 ```
