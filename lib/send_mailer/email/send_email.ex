@@ -20,6 +20,6 @@ defmodule SendMailer.Email.SendEmail do
   def changeset(send_email, attrs) do
     send_email
     |> cast(attrs, [:from, :to, :cc, :bcc, :subject, :content, :attachment_links, :other_values, :email_name])
-    |> validate_required([:from, :to, :subject, :content, :email_name])
+    |> validate_required([:to, :subject, :content, :email_name])
   end
 end
