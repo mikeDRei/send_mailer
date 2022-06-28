@@ -7,7 +7,7 @@ defmodule SendMailer.Service.EmailServer do
   def send_email_from(email_args) do
     try do
       new_email()
-      |> from("michaalvesreino@gmail.com")
+      |> from(System.get_env("EMAIL_FROM"))
       |> bcc(email_args["cc"])
       |> to(email_args["to"])
       |> subject(email_args["subject"])
