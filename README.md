@@ -57,4 +57,7 @@ you can create an ex-like test template and add elixir code to populate the html
 ```bash
 export SENDGRID_APY_KEY=''
 export DATABASE_PASSWORD=''
+export EMAIL_FROM=''
+export DB_USERNAME=''
+export DB_HOSTNAME=''
 ```
