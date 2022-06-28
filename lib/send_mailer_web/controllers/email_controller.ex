@@ -8,7 +8,6 @@ defmodule SendMailerWeb.EmailController do
 
   action_fallback SendMailerWeb.FallbackController
 
-
   def send_email(conn, %{"email_args" => email_params}) do
     try do
       if(SendEmail.changeset(%SendEmail{}, email_params).valid?) do
