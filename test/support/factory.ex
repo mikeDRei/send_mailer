@@ -5,8 +5,8 @@ defmodule SendMailer.Factory do
     %{
       "from" => "michaalvesreino@gmail.com",
       "to" => ["michael#{Enum.random(0..100)}@gmail.com"],
-      "cc" => ["joão#{Enum.random(0..100)}@gmail.com"],
-      "bcc" => ["joão#{Enum.random(0..100)}@gmail.com"],
+      "cc" => ["joao#{Enum.random(0..100)}@gmail.com"],
+      "bcc" => ["joao#{Enum.random(0..100)}@gmail.com"],
       "subject" => "title headers email",
       "content" => "Text content email",
       "email_name" => "test",
