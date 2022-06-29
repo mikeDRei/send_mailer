@@ -3,7 +3,6 @@ defmodule SendMailer.Repo.Migrations.CreateSentEmailData do
 
   def change do
     create table(:sent_email_data) do
-      add :type_email, :string
       add :payload, :map
 
       timestamps()
