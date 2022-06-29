@@ -7,6 +7,10 @@ mix deps.get
 mix deps.compile
 mix phx.server
 ```
+# Tests
+```bash
+mix test
+```
 # Config
 ```elixir
 config :send_mailer, SendMailer.Service.EmailServer,
