@@ -17,7 +17,7 @@ defmodule SendMailer.Service.EmailServer do
         #content_type: "image/png", content_id: "logotipo.png"))
       |> render(email_args["email_name"] <> ".html")
       |> deliver_now()
-      Logger.info("Email sent to sendgrid")
+      info("Email sent to sendgrid")
     rescue
       e in RuntimeError -> IO.puts("An error occurred: " <> e.message)
     end
