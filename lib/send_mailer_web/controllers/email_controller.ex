@@ -15,7 +15,6 @@ defmodule SendMailerWeb.EmailController do
       if(SendEmail.changeset(%SendEmail{}, email_params).valid?) do
         EmailServer.send_email_from(email_params)
 
-        save_email_data(email_params)
         logger(:success, email_params)
         conn
         |> put_status(:ok)
@@ -42,17 +41,33 @@ defmodule SendMailerWeb.EmailController do
     end
   end
 
-  def save_email_data (email_params) do
-    sent_email_data_params =
-      %{type_email: "email_template: #{email_params["email_name"]}.html",
-        payload: email_params
-      }
-    if(SentEmailData.changeset(%SentEmailData{}, sent_email_data_params).valid?) do
-      EmailData.create_sent_email_data(sent_email_data_params)
-      logger(:success_save)
-    else
-      logger(:error_save)
-      raise "error! parameters of other values may be incorrect or not informed"
+  def save_email_data(conn, sendgrid_args) do
+    try do
+      sendgrid_params =
+        %{type_email: "email_template: test.html",
+          payload: sendgrid_args
+        }
+      if(SentEmailData.changeset(%SentEmailData{}, sendgrid_params).valid?) do
+        EmailData.create_sent_email_data(sendgrid_params)
+
+        logger(:success_save)
+
+        conn
+          |> put_status(:ok)
+          |> json(%{
+            message: "Email successfully sent sendgrid!",
+            status: 200
+          })
+      else
+        logger(:error_save)
+
+        raise "error! parameters of other values may be incorrect or not informed"
+        end
+      rescue
+        e ->
+          conn
+          |> put_status(:internal_server_error)
+          |> json(e.message)
     end
   end
 
