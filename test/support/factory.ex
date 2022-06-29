@@ -17,7 +17,6 @@ defmodule SendMailer.Factory do
 
   def set_email_data_factory do
     %{
-    "exam_code" => "454545",
     "payload" => %{"exam_code" => "45454", "name" => "michael"},
     "type_email" => "test type email"
     }
