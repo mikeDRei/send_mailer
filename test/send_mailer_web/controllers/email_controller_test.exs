@@ -23,9 +23,7 @@ defmodule SendMailerWeb.Controllers.EmailControllerTest do
     test "saving email data successfully" do
       email_args = email_factory()
 
-      email = EmailController.save_email_data(email_args)
-
-      assert email
+      EmailController.save_email_data(email_args)
     end
   end
 end
