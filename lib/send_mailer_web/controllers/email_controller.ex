@@ -5,8 +5,9 @@ defmodule SendMailerWeb.EmailController do
   alias SendMailer.Email.SendEmail
   alias SendMailer.EmailData
   alias SendMailer.EmailData.SentEmailData
+  alias SendMailer.Service.Log
 
-  import Logger
+  import SendMailer.Service.DateTime
 
   action_fallback SendMailerWeb.FallbackController
 
@@ -15,7 +16,7 @@ defmodule SendMailerWeb.EmailController do
       if(SendEmail.changeset(%SendEmail{}, email_params).valid?) do
         EmailServer.send_email_from(email_params)
 
-        logger(:success, email_params)
+        Log.logger(:success, email_params)
         conn
         |> put_status(:ok)
         |> json(%{
@@ -24,7 +25,8 @@ defmodule SendMailerWeb.EmailController do
           email_content: email_params
         })
       else
-        logger(:error, email_params)
+        Log.logger(:error, email_params)
+
         conn
         |> put_status(:bad_request)
         |> json(%{
@@ -43,14 +45,10 @@ defmodule SendMailerWeb.EmailController do
 
   def save_email_data(conn, sendgrid_args) do
     try do
-      sendgrid_params =
-        %{type_email: "email_template: test.html",
-          payload: sendgrid_args
-        }
-      if(SentEmailData.changeset(%SentEmailData{}, sendgrid_params).valid?) do
-        EmailData.create_sent_email_data(sendgrid_params)
+      Enum.each(0..Enum.count(sendgrid_args["_json"]), 
+      fn(index) -> save_sendgrid_payload(index, sendgrid_args) end)
 
-        logger(:success_save)
+      Log.logger(:success_save)
 
         conn
           |> put_status(:ok)
@@ -58,11 +56,6 @@ defmodule SendMailerWeb.EmailController do
             message: "Email successfully sent sendgrid!",
             status: 200
           })
-      else
-        logger(:error_save)
-
-        raise "error! parameters of other values may be incorrect or not informed"
-        end
       rescue
         e ->
           conn
@@ -71,26 +64,23 @@ defmodule SendMailerWeb.EmailController do
     end
   end
 
-  defp logger(info, email_params) do
-    email_args = "to: #{email_params["to"]} cc: #{email_params["cc"]}
-                  template: #{email_params["email_name"]}.html,
-                  subject: #{email_params["subject"]}, content: #{email_params["content"]}"
+  defp save_sendgrid_payload(index, sendgrid_payload) do
+    sendgrid_args = sendgrid_payload["_json"]
+    list_sendgrid_args = Enum.at(sendgrid_args, index)
 
-    if info == :success,
-      do: info("Email sent to sendgrid: email_args #{email_args},
-                      timezone: #{Time.utc_now()}")
+    sendgrid_data = sendgrid_data(list_sendgrid_args["email"], 
+                                  list_sendgrid_args["event"], 
+                                  list_sendgrid_args["sg_event_id"], 
+                                  list_sendgrid_args["sg_message_id"])
 
-    if info == :error, 
-      do: error("Error sending email, check the parameters informed
-          email_args #{email_args}, timezone: #{Time.utc_now()}")
+      EmailData.create_sent_email_data(sendgrid_data)
   end
 
-  defp logger(info) do
-    if info == :success_save,
-      do: info("Email data saved successfully, timezone: #{Time.utc_now()}")
-
-    if info == :error_save, 
-      do: error("Error saving e-mail data! parameters of other values may be incorrect
-        or not informed, timezone: #{Time.utc_now()}")
+  defp sendgrid_data(email, event, event_id, message_id) do
+    %{
+      email: "#{email}", event: "#{event}", event_id: "#{event_id}",
+      message_id: "#{message_id}",
+      event_time: "#{dateTime()}"
+    }
   end
 end
