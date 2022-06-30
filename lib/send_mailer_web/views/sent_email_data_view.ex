@@ -13,7 +13,11 @@ defmodule SendMailerWeb.SentEmailDataView do
   def render("sent_email_data.json", %{sent_email_data: sent_email_data}) do
     %{
       id: sent_email_data.id,
-      payload: sent_email_data.payload
+      email: sent_email_data.email,
+      event: sent_email_data.event,
+      event_id: sent_email_data.event_id,
+      message_id: sent_email_data.message_id,
+      event_time: sent_email_data.event_time
     }
   end
 end
