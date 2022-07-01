@@ -4,8 +4,6 @@ defmodule SendMailerWeb.Controllers.EmailControllerTest do
   use Bamboo.Test
   use SendMailerWeb.ConnCase
 
-  alias SendMailerWeb.EmailController
-
   import SendMailer.Factory
 
   setup %{conn: conn} do
@@ -13,17 +11,16 @@ defmodule SendMailerWeb.Controllers.EmailControllerTest do
   end
 
   describe "send_email/1" do
-    test "", %{conn: conn} do
+    test "send email data to sendgrid", %{conn: conn} do
       conn = post(conn, Routes.email_path(conn, :send_email), email_args: email_factory())
       assert conn
     end
   end
 
   describe "save_email_data/1" do
-    test "saving email data successfully" do
-      email_args = email_factory()
-
-      EmailController.save_email_data(email_args)
+    test "saving payload sendgrid successfully", %{conn: conn} do
+      conn = post(conn, Routes.email_path(conn, :save_email_data), set_email_data_factory())
+      assert conn
     end
   end
 end

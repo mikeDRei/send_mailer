@@ -7,11 +7,9 @@ defmodule SendMailer.Service.EmailServerTest do
   import SendMailer.Factory
 
   describe "send_email/1" do
-    test "Email successfully sent" do
+    test "validating the email and data arguments to the template" do
       email_args = email_factory()
-
       email = EmailServer.send_email_from(email_args)
-
       assert email
     end
   end
