@@ -1,0 +1,60 @@
+<html>
+  <head>
+  <style>
+    .body {
+      color: white;
+      background-color: #000000;
+      font-family: Roboto;
+      font-size: 24px;
+      max-width: 1064px;
+      padding: 15px;
+    }
+    .terminal {
+      color: darkgreen;
+    }
+    p, div, span {
+      color: rgb(255, 255, 255) !important;
+    }
+    .logo {
+      margin: 40px 0 52px;
+      text-align: center;
+    }
+    .title {
+      font-size: 32px;
+      line-height: 38px;
+      text-align: center;
+      margin-bottom: 90px;
+    }
+    .info {
+      background-color: #000000;
+      color: #ffffff;
+      font-size: 24px;
+      padding-right: 4px;
+      padding-bottom: 28px;
+      padding-left: 42px;
+      width: 974px;
+      height: calc(100% - 80px);
+    }
+      </style>
+  </head>
+  <body>
+    <div class="body">
+      <p class="logo">
+        <img src="https://github.com/mikeDRei/repo_image/blob/main/logotipoRosa.png?raw=true"
+          alt="logotipo.png" style = "width: 300px; height: 126px;" />
+      </p>
+
+      <p class="title">
+        <b>SendMailer V1</b>
+      </p>
+
+      <p style="margin-left:40px; margin-top:35px"><b class="terminal">sendMailer@terminal-desktop:</b>~$ Olá</p>
+
+      <p class="info" style="line-height: 60px;  margin: -20px 0 50px;">
+        <b class="terminal">sendMailer@terminal-desktop:</b>~$ Bem vindo a POC - SendMailer <br>
+        <b class="terminal">sendMailer@terminal-desktop:</b>~$ Repositorio do projeto --> 
+        <a href="https://github.com/mikeDRei/send_mailer">
+        SendMailer</a><br>
+      </p>
+  </body>
+<html>
