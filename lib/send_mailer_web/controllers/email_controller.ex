@@ -4,7 +4,6 @@ defmodule SendMailerWeb.EmailController do
   alias SendMailer.Service.EmailServer
   alias SendMailer.Email.SendEmail
   alias SendMailer.EmailData
-  alias SendMailer.EmailData.SentEmailData
   alias SendMailer.Service.Log
 
   import SendMailer.Service.DateTime
@@ -48,7 +47,7 @@ defmodule SendMailerWeb.EmailController do
       Enum.each(0..Enum.count(sendgrid_args["_json"]), 
       fn(index) -> save_sendgrid_payload(index, sendgrid_args) end)
 
-      Log.logger(:success_save)
+      Log.logger(:success)
 
         conn
           |> put_status(:ok)
