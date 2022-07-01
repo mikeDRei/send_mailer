@@ -1,6 +1,7 @@
 defmodule SendMailer.Service.Log do
   import Logger
   import SendMailer.Service.DateTime
+
   def logger(info, email_params) do
     email_args = "to: #{email_params["to"]} cc: #{email_params["cc"]}
                   template: #{email_params["email_name"]}.html,
@@ -15,12 +16,11 @@ defmodule SendMailer.Service.Log do
   end
 
   def logger(info) do
-    if info == :success_save,
-      do: info("Email data saved successfully #{dateTime()}")
+    if info == :success,
+      do: info("Data received from sendgrid! and successfully saved #{dateTime()}")
 
-    if info == :error_save, 
-      do: error("Error saving e-mail data! parameters of other values may be incorrect
-        or not informed #{dateTime()}")
+    if info == :error, 
+      do: error("Error data received from sendgrid not saved #{dateTime()}")
       
   end
 end
