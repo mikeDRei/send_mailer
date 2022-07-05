@@ -11,7 +11,7 @@ defmodule SendMailer.Factory do
       "content" => "Text content email",
       "email_name" => "test",
       "other_values" => %{"exam_code" => "45454", "name" => "michael"},
-      "attachment_links" => ["teste attachment_links"]
+      "attachment_links" => "#{File.cwd!}/priv/static/images/phoenix.png"
     }
   end
 
