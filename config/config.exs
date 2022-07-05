@@ -47,7 +47,7 @@ config :logger, :console,
 # Use Jason for JSON parsing in Phoenix
 config :phoenix, :json_library, Jason
 
-# config :send_mailer, SendMailer.Service.EmailServer,
+# config :send_mailer, SendMailer.Service.Server.EmailServer,
 #   adapter: Bamboo.SMTPAdapter,
 #   server: "smtp.ethereal.email",
 #   hostname: "smtp.ethereal.email",
@@ -60,7 +60,7 @@ config :phoenix, :json_library, Jason
 
 
 #Bamboo email Sendgrid
-config :send_mailer, SendMailer.Service.EmailServer,
+config :send_mailer, SendMailer.Service.Server.EmailServer,
   adapter: Bamboo.SendGridAdapter,
   api_key: System.get_env("SENDGRID_APY_KEY")
 
