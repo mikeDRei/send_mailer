@@ -1,4 +1,4 @@
-defmodule SendMailer.Service.EmailServer do
+defmodule SendMailer.Service.Server.EmailServer do
   use Bamboo.Phoenix, view: SendMailerWeb.EmailView
   use Bamboo.Mailer, otp_app: :send_mailer
 

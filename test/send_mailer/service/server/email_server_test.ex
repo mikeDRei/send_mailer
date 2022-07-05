@@ -1,8 +1,8 @@
-defmodule SendMailer.Service.EmailServerTest do
+defmodule SendMailer.Service.Server.EmailServerTest do
   use ExUnit.Case
   use Bamboo.Test
 
-  alias SendMailer.Service.EmailServer
+  alias SendMailer.Service.Server.EmailServer
 
   import SendMailer.Factory
 

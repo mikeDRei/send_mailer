@@ -13,7 +13,7 @@ mix test
 ```
 # Config
 ```elixir
-config :send_mailer, SendMailer.Service.EmailServer,
+config :send_mailer, SendMailer.Service.Server.EmailServer,
   adapter: Bamboo.SendGridAdapter,
   api_key: "your api key sendgrid"
 ```

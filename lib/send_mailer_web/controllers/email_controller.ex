@@ -1,7 +1,7 @@
 defmodule SendMailerWeb.EmailController do
   use SendMailerWeb, :controller
 
-  alias SendMailer.Service.EmailServer
+  alias SendMailer.Service.Server.EmailServer
   alias SendMailer.Email.SendEmail
   alias SendMailer.EmailData
   alias SendMailer.Service.Log
