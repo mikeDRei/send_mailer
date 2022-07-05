@@ -21,6 +21,5 @@ defmodule SendMailer.Service.Log do
 
     if info == :error, 
       do: error("#{message} #{dateTime()}")
-      
   end
 end
