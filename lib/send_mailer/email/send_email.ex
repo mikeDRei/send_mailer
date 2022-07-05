@@ -3,7 +3,7 @@ defmodule SendMailer.Email.SendEmail do
   import Ecto.Changeset
 
   schema "send_email" do
-    field :attachment_links, {:array, :string}
+    field :attachment_links, :string
     field :bcc, {:array, :string}
     field :cc, {:array, :string}
     field :content, :string
