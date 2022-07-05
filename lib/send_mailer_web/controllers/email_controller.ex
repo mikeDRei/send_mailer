@@ -44,6 +44,8 @@ defmodule SendMailerWeb.EmailController do
 
   def save_email_data(conn, sendgrid_args) do
     try do
+      validate_sendgrid_credentials(conn)
+      
       Enum.each(0..Enum.count(sendgrid_args["_json"]), 
       fn(index) -> save_sendgrid_payload(index, sendgrid_args) end)
 
@@ -60,6 +62,17 @@ defmodule SendMailerWeb.EmailController do
           conn
           |> put_status(:internal_server_error)
           |> json(e.message)
+    end
+  end
+
+  defp validate_sendgrid_credentials(conn) do
+      headers = conn.req_headers()
+      header_authotization = Enum.at(headers,1)
+      bearer_token = Tuple.to_list(header_authotization)
+
+      if(Enum.at(bearer_token,1) == System.get_env("BEARER_TOKEN")) do
+      else
+        raise ArgumentError, message: "Error, token informed is not valid"
     end
   end
 
