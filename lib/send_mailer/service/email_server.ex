@@ -13,8 +13,8 @@ defmodule SendMailer.Service.EmailServer do
       |> to(email_args["to"])
       |> subject(email_args["subject"])
       |> assign(:email_args, email_args)
-      # |> put_attachment(Bamboo.Attachment.new(root_path(), filename: "poc.png",
-      #   content_type: "image/png", content_id: "poc.png"))
+      |> put_attachment(Bamboo.Attachment.new(root_path(), filename: "poc.png",
+        content_type: "image/png", content_id: "poc.png"))
       |> render(email_args["email_name"] <> ".html")
       |> deliver_now()
       info("Email sent to sendgrid")
