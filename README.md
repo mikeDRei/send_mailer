@@ -64,4 +64,7 @@ export DATABASE_PASSWORD=''
 export EMAIL_FROM=''
 export DB_USERNAME=''
 export DB_HOSTNAME=''
+export CLIENT_ID=''
+export CLIENT_SECRET=''
+export BEARER_TOKEN=''
 ```
