@@ -23,8 +23,12 @@ defmodule SendMailerWeb.Controllers.AuthorizationControllerTest do
   @tag client_id: System.get_env("CLIENT_ID")
   @tag client_secret: System.get_env("CLIENT_SECRET")
   describe "validate_client_params/2" do
-    test "validating sendgrid parameters - client_id and client_secret", %{client_id: client_id, client_secret: client_secret} do
-      assert AuthorizationController.validate_client_params(client_id, client_secret) == true
+    test "validating sendgrid parameters - client_id and client_secret", 
+      %{client_id: client_id, client_secret: client_secret} do
+      
+      authorization =  AuthorizationController.validate_client_params(client_id, client_secret)
+      
+      assert authorization  == {:ok, {"the token is valid!"}}
     end
   end
 end
