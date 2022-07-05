@@ -18,13 +18,13 @@ defmodule SendMailerWeb.AuthorizationController do
       put_env("BEARER_TOKEN", "Bearer " <> encrypt(bearer_token))
 
       conn
-        |> put_status(:ok)
-        |> json(encrypt(bearer_token))
+      |> put_status(:ok)
+      |> json(encrypt(bearer_token))
     rescue
       e ->
         conn
-          |> put_status(:internal_server_error)
-          |> json(e.message)
+        |> put_status(:internal_server_error)
+        |> json(e.message)
     end
   end
 
