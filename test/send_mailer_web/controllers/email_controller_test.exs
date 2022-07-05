@@ -18,7 +18,7 @@ defmodule SendMailerWeb.Controllers.EmailControllerTest do
   end
 
   describe "save_email_data/1" do
-    test "saving payload sendgrid successfully", %{conn: conn} do
+    test "saving payload sendgrid successfully", %{conn: conn} do 
       conn = post(conn, Routes.email_path(conn, :save_email_data), set_email_data_factory())
       assert conn
     end

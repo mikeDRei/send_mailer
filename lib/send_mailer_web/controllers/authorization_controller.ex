@@ -28,8 +28,9 @@ defmodule SendMailerWeb.AuthorizationController do
     end
   end
 
-  defp validate_client_params(id, secret) do
+  def validate_client_params(id, secret) do
     if(id == get_env("CLIENT_ID") && secret == get_env("CLIENT_SECRET")) do
+    true
     else
       raise ArgumentError, message: "Error generating token, credentials are invalid!"
     end
