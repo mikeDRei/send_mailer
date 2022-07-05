@@ -19,7 +19,7 @@ defmodule SendMailerWeb.AuthorizationController do
 
       conn
       |> put_status(:ok)
-      |> json(encrypt(bearer_token))
+      |> json(%{access_token: encrypt(bearer_token)})
     rescue
       e ->
         conn
