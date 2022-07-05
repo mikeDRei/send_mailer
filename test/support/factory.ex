@@ -55,4 +55,11 @@ defmodule SendMailer.Factory do
     ]
   }
   end
+
+  def sendgrid_params_factory do
+    %{
+      "client_id" => "78945645645asas",
+      "client_secret" => "secret7894564564"
+    }
+  end
 end
