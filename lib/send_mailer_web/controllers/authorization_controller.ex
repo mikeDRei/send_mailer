@@ -1,6 +1,8 @@
 defmodule SendMailerWeb.AuthorizationController do
   use SendMailerWeb, :controller
 
+  alias SendMailer.Service.Log
+
   import System
   import SendMailer.Service.EncryptToken
 
@@ -16,7 +18,8 @@ defmodule SendMailerWeb.AuthorizationController do
       bearer_token = Enum.at(client_id, 1) <> Enum.at(client_secret, 1)
       
       encrypt_sendgrid_token_env(bearer_token)
-      
+
+      Log.logger(:success, "token generated successfully!")
       conn
       |> put_status(:ok)
       |> json(%{access_token: encrypt(bearer_token)})
@@ -30,7 +33,8 @@ defmodule SendMailerWeb.AuthorizationController do
 
   def validate_client_params(id, secret) do
     if(id == get_env("CLIENT_ID") && secret == get_env("CLIENT_SECRET")) do
-    true
+      Log.logger(:success, "token generated successfully!")
+      {:ok, {"the token is valid!"}}
     else
       raise ArgumentError, message: "Error generating token, credentials are invalid!"
     end

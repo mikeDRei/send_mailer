@@ -15,7 +15,7 @@ defmodule SendMailerWeb.EmailController do
       if(SendEmail.changeset(%SendEmail{}, email_params).valid?) do
         EmailServer.send_email_from(email_params)
 
-        Log.logger(:success, email_params)
+        Log.log_email_params(:success, email_params)
         conn
         |> put_status(:ok)
         |> json(%{
@@ -24,7 +24,7 @@ defmodule SendMailerWeb.EmailController do
           email_content: email_params
         })
       else
-        Log.logger(:error, email_params)
+        Log.log_email_params(:error, email_params)
 
         conn
         |> put_status(:bad_request)
@@ -49,7 +49,7 @@ defmodule SendMailerWeb.EmailController do
       Enum.each(0..Enum.count(sendgrid_args["_json"]), 
       fn(index) -> save_sendgrid_payload(index, sendgrid_args) end)
 
-      Log.logger(:success)
+      Log.logger(:success, "Data received from sendgrid! and successfully saved")
 
         conn
           |> put_status(:ok)
@@ -71,6 +71,7 @@ defmodule SendMailerWeb.EmailController do
       bearer_token = Tuple.to_list(header_authotization)
 
       if(Enum.at(bearer_token,1) == System.get_env("BEARER_TOKEN")) do
+      {:ok, {true}}
       else
         raise ArgumentError, message: "Error, token informed is not valid"
     end
