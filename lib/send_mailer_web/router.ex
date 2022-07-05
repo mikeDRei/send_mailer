@@ -24,6 +24,7 @@ defmodule SendMailerWeb.Router do
     pipe_through :api
     post "/send_email", EmailController, :send_email
     post "/save_email_data", EmailController, :save_email_data
+    post "/sendgrid/generate_token", AuthorizationController, :generate_sendrid_token 
   end
 
   if Mix.env() in [:dev, :test] do
