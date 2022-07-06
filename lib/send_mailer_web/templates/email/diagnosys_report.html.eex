@@ -58,7 +58,7 @@
   <body>
     <div class="body">
       <p class="logo">
-        <img src="https://github.com/mikeDRei/repo_image/blob/main/logotipoRosa.png?raw=true"
+        <img src="http://cdn.mcauto-images-production.sendgrid.net/774b27b8ad82b7cb/7e5cfe7d-8104-430a-81cf-e773ea928c81/721x301.png"
           alt="logotipo.png" style = "width: 300px; height: 126px;" />
       </p>
 
@@ -81,7 +81,7 @@
       </p>
 
       <p class="link">
-        <a href="https://app.neomed.tech"><img src="https://github.com/mikeDRei/repo_image/blob/main/details_btn.png?raw=true"
+        <a href="https://app.neomed.tech"><img src="http://cdn.mcauto-images-production.sendgrid.net/774b27b8ad82b7cb/17a91090-be1d-42f1-8666-56c1f60ba050/616x93.png"
           alt="logotipo.png" style = "width: calc(100% - 80px); height: 125px;" /> </a>
       </p>
 
