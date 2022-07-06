@@ -60,14 +60,25 @@ you can create an ex-like test template and add elixir code to populate the html
 
 ```bash
 export SENDGRID_APY_KEY=''
+```
+```bash
 export DATABASE_PASSWORD=''
-export EMAIL_FROM=''
+```
+```bash
 export DB_USERNAME=''
+```
+```bash
 export DB_HOSTNAME=''
+```
+```bash
+export EMAIL_FROM=''
+```
+```bash
 export CLIENT_ID=''
+```
+```bash
 export CLIENT_SECRET=''
 ```
-
 To generate the Bearer Token enter the following commands in your terminal
 
 ```bash
