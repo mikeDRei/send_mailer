@@ -10,8 +10,7 @@ defmodule SendMailer.Factory do
       "subject" => "title headers email",
       "content" => "Text content email",
       "email_name" => "test",
-      "other_values" => %{"exam_code" => "45454", "name" => "michael"},
-      "attachment_links" => "/priv/static/images/phoenix.png"
+      "other_values" => %{"exam_code" => "45454", "name" => "michael"}
     }
   end
 
@@ -19,7 +18,7 @@ defmodule SendMailer.Factory do
     %{
     "_json" => [
       %{
-        "email" => "usuarioone@gmail.com",
+        "email" => "userone@gmail.com",
         "event" => "processed",
         "send_at" => 0,
         "sg_event_id" => "cHJvY2Vzc2VkLTI3Mjk3ODU4LVhlLUhYcjJXUWd5TE5YelRFRmoyUkEtMA",
@@ -28,20 +27,11 @@ defmodule SendMailer.Factory do
         "timestamp" => 1656534516
       },
       %{
-        "email" => "usuariotwo@gmail.com",
+        "email" => "usertwo@gmail.com",
         "event" => "processed",
         "send_at" => 0,
         "sg_event_id" => "cHJvY2Vzc2VkLTI3Mjk3ODU4LVhlLUhYcjJXUWd5TE5YelRFRmoyUkEtMQ",
         "sg_message_id" => "Xe-HXr2WQgyLNXzTEFj2RA.filterdrecv-679d49d7d8-q2xs4-1-62BCB5F4-4A.1",
-        "smtp-id" => "<Xe-HXr2WQgyLNXzTEFj2RA@geopod-ismtpd-1-1>",
-        "timestamp" => 1656534516
-      },
-      %{
-        "email" => "userneo@neomed.tech",
-        "event" => "processed",
-        "send_at" => 0,
-        "sg_event_id" => "cHJvY2Vzc2VkLTI3Mjk3ODU4LVhlLUhYcjJXUWd5TE5YelRFRmoyUkEtMg",
-        "sg_message_id" => "Xe-HXr2WQgyLNXzTEFj2RA.filterdrecv-679d49d7d8-q2xs4-1-62BCB5F4-4A.2",
         "smtp-id" => "<Xe-HXr2WQgyLNXzTEFj2RA@geopod-ismtpd-1-1>",
         "timestamp" => 1656534516
       },
