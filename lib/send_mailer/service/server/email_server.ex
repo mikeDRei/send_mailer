@@ -23,12 +23,12 @@ defmodule SendMailer.Service.Server.EmailServer do
 
   def email_headers(email_args) do
     new_email()
-      |> from(System.get_env("EMAIL_FROM"))
-      |> bcc(email_args["cc"])
-      |> to(email_args["to"])
-      |> subject(email_args["subject"])
-      |> assign(:email_args, email_args)
-      |> render(email_args["email_name"] <> ".html")
+    |> from(System.get_env("EMAIL_FROM"))
+    |> bcc(email_args["cc"])
+    |> to(email_args["to"])
+    |> subject(email_args["subject"])
+    |> assign(:email_args, email_args)
+    |> render(email_args["email_name"] <> ".html")
   end
 
   defp attachment(path) do
