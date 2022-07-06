@@ -38,7 +38,9 @@ defmodule SendMailerWeb.EmailController do
         e ->
           conn
           |> put_status(:internal_server_error)
-          |> json(e.message)
+          |> json(%{
+            message: "could not send email to sendgrid"
+          })
     end
   end
 
@@ -61,7 +63,9 @@ defmodule SendMailerWeb.EmailController do
         e ->
           conn
           |> put_status(:internal_server_error)
-          |> json(e.message)
+          |> json(%{
+            message: "could not save sendgrid payload, check auth token!"
+          })
     end
   end
 
