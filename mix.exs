@@ -52,7 +52,8 @@ defmodule SendMailer.MixProject do
       {:bamboo, "~> 1.7.1"},
       {:bamboo_smtp, "~> 3.0.0"},
       {:ex_machina, "~> 2.7.0"},
-      {:tzdata, "~> 1.1", override: true}
+      {:tzdata, "~> 1.1", override: true},
+      {:credo, "~> 1.6", only: [:dev, :test], runtime: false}
     ]
   end
 
