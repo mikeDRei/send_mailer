@@ -7,9 +7,16 @@ mix deps.get
 mix deps.compile
 mix phx.server
 ```
+## Run Project (Docker)
+```bash
+docker-compose build
+docker-compose run web mix ecto.create
+docker-compose run web mix ecto.migrate
+docker-compose up
+```
 # Tests
 ```bash
-mix test
+docker-compose run -e MIX_ENV=test web mix test
 ```
 # Config
 ```elixir
@@ -56,19 +63,10 @@ you can create an ex-like test template and add elixir code to populate the html
   </body>
 </html>
 ```
-# Environment Variables
+# Environment Variables (.env)
 
 ```bash
-export SENDGRID_APY_KEY=''
-```
-```bash
-export DATABASE_PASSWORD=''
-```
-```bash
-export DB_USERNAME=''
-```
-```bash
-export DB_HOSTNAME=''
+export SENDGRID_API_KEY=''
 ```
 ```bash
 export EMAIL_FROM=''
