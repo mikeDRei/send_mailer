@@ -62,7 +62,7 @@ config :phoenix, :json_library, Jason
 #Bamboo email Sendgrid
 config :send_mailer, SendMailer.Service.Server.EmailServer,
   adapter: Bamboo.SendGridAdapter,
-  api_key: System.get_env("SENDGRID_APY_KEY")
+  api_key: System.get_env("SENDGRID_API_KEY")
 
 config :elixir, :time_zone_database, Tzdata.TimeZoneDatabase
 

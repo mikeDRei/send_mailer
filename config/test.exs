@@ -6,10 +6,11 @@ import Config
 # to provide built-in test partitioning in CI environment.
 # Run `mix help test` for more information.
 config :send_mailer, SendMailer.Repo,
-  username: System.get_env("DB_USERNAME"),
-  password: System.get_env("DATABASE_PASSWORD"),
-  hostname: System.get_env("DB_HOSTNAME"),
-  database: "send_mailer_test#{System.get_env("MIX_TEST_PARTITION")}",
+  # username: "postgres",
+  # password: System.get_env("PASSWORD"),
+  # hostname: "localhost",
+  # database: "send_mailer_test#{System.get_env("MIX_TEST_PARTITION")}",
+  url: System.get_env("DATABASE_URL"),
   pool: Ecto.Adapters.SQL.Sandbox,
   pool_size: 10
 
