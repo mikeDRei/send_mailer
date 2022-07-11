@@ -1,4 +1,5 @@
 defmodule SendMailer.Service.Server.EmailServer do
+  @moduledoc false
   use Bamboo.Phoenix, view: SendMailerWeb.EmailView
   use Bamboo.Mailer, otp_app: :send_mailer
 
@@ -7,7 +8,7 @@ defmodule SendMailer.Service.Server.EmailServer do
 
   def send_email_from(email_args) do
     try do
-      if(email_args["attachment_links"] != nil) do
+      if email_args["attachment_links"] != nil do
         email_headers(email_args)
         |> put_attachment(attachment(email_args["attachment_links"]))
         |> deliver_now()
@@ -39,7 +40,7 @@ defmodule SendMailer.Service.Server.EmailServer do
   end
 
   defp content_filename(path) do
-    extname = String.replace(Path.extname(path),".","")
+    extname = String.replace(Path.extname(path), ".", "")
     case extname do
       "png" -> "image/#{extname}"
       "jpg" -> "image/#{extname}"

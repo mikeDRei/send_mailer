@@ -32,7 +32,7 @@ defmodule SendMailerWeb.AuthorizationController do
   end
 
   def validate_client_params(id, secret) do
-    if(id == get_env("CLIENT_ID") && secret == get_env("CLIENT_SECRET")) do
+    if id == get_env("CLIENT_ID") && secret == get_env("CLIENT_SECRET") do
       Log.logger(:success, "token generated successfully!")
       {:ok, {"the token is valid!"}}
     else

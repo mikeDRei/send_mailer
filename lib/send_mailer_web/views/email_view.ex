@@ -23,7 +23,7 @@ defmodule SendMailerWeb.EmailView do
     }
   end
 
-  def listReportContent(report_content, split_arg) do
+  def list_report_content(report_content, split_arg) do
     report_content |> String.split(split_arg)
   end 
 end

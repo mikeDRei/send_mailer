@@ -76,7 +76,7 @@
       
       <p class="exam-info" style="line-height: 30px;  margin: -80px 0 50px;">
         <b> Laudo </b> <br>
-        <% report_content = listReportContent(@email_args["other_values"]["report_content"], "\\n")%>
+        <% report_content = list_report_content(@email_args["other_values"]["report_content"], "\\n")%>
         <%= report_content |> Enum.intersperse(Phoenix.HTML.Tag.tag(:br))%>
       </p>
 

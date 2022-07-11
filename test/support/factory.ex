@@ -1,4 +1,5 @@
 defmodule SendMailer.Factory do
+  @moduledoc false
   use ExMachina
   
   def email_factory do
@@ -24,7 +25,7 @@ defmodule SendMailer.Factory do
         "sg_event_id" => "cHJvY2Vzc2VkLTI3Mjk3ODU4LVhlLUhYcjJXUWd5TE5YelRFRmoyUkEtMA",
         "sg_message_id" => "Xe-HXr2WQgyLNXzTEFj2RA.filterdrecv-679d49d7d8-q2xs4-1-62BCB5F4-4A.0",
         "smtp-id" => "<Xe-HXr2WQgyLNXzTEFj2RA@geopod-ismtpd-1-1>",
-        "timestamp" => 1656534516
+        "timestamp" => 1_656_534_516
       },
       %{
         "email" => "usertwo@gmail.com",
@@ -33,7 +34,7 @@ defmodule SendMailer.Factory do
         "sg_event_id" => "cHJvY2Vzc2VkLTI3Mjk3ODU4LVhlLUhYcjJXUWd5TE5YelRFRmoyUkEtMQ",
         "sg_message_id" => "Xe-HXr2WQgyLNXzTEFj2RA.filterdrecv-679d49d7d8-q2xs4-1-62BCB5F4-4A.1",
         "smtp-id" => "<Xe-HXr2WQgyLNXzTEFj2RA@geopod-ismtpd-1-1>",
-        "timestamp" => 1656534516
+        "timestamp" => 1_656_534_516
       },
       %{
         "email" => "usermail@gmail.com",

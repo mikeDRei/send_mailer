@@ -12,7 +12,7 @@ defmodule SendMailerWeb.EmailController do
 
   def send_email(conn, %{"email_args" => email_params}) do
     try do
-      if(SendEmail.changeset(%SendEmail{}, email_params).valid?) do
+      if SendEmail.changeset(%SendEmail{}, email_params).valid? do
         EmailServer.send_email_from(email_params)
 
         Log.log_email_params(:success, email_params)
@@ -71,10 +71,10 @@ defmodule SendMailerWeb.EmailController do
 
   defp validate_sendgrid_credentials(conn) do
       headers = conn.req_headers()
-      header_authotization = Enum.at(headers,1)
+      header_authotization = Enum.at(headers, 1)
       bearer_token = Tuple.to_list(header_authotization)
 
-      if(Enum.at(bearer_token,1) == System.get_env("BEARER_TOKEN")) do
+      if Enum.at(bearer_token, 1) == System.get_env("BEARER_TOKEN") do
       {:ok, {true}}
       else
         raise ArgumentError, message: "Error, token informed is not valid"
@@ -97,7 +97,7 @@ defmodule SendMailerWeb.EmailController do
     %{
       email: "#{email}", event: "#{event}", event_id: "#{event_id}",
       message_id: "#{message_id}",
-      event_time: "#{dateTime()}"
+      event_time: "#{date_time()}"
     }
   end
 end

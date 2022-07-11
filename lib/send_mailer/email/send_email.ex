@@ -1,4 +1,5 @@
 defmodule SendMailer.Email.SendEmail do
+  @moduledoc false
   use Ecto.Schema
   import Ecto.Changeset
 
