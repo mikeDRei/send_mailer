@@ -9,18 +9,18 @@ defmodule SendMailer.Service.Log do
                   subject: #{email_params["subject"]}, content: #{email_params["content"]}"
 
     if info == :success,
-      do: info("Email sent to sendgrid: email_args #{email_args} hour/date: #{date_time()}")
+      do: info("Email sent to sendgrid: email_args #{email_args} hour/date: #{utc_hour()} #{utc_date()}")
 
     if info == :error, 
       do: error("Error sending email, check the parameters informed email_args:
-        #{email_args} hour/date: #{date_time()}")
+        #{email_args} hour/date: #{utc_hour()} #{utc_date()}")
   end
 
   def logger(info, message) do
     if info == :success,
-      do: info("#{message} hour/date: #{date_time()}")
+      do: info("#{message} hour/date: #{utc_hour()} #{utc_date()}")
 
     if info == :error, 
-      do: error("#{message} hour/date: #{date_time()}")
+      do: error("#{message} hour/date: #{utc_hour()} #{utc_date()}")
   end
 end
