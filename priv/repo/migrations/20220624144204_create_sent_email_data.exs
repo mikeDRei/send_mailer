@@ -7,7 +7,8 @@ defmodule SendMailer.Repo.Migrations.CreateSentEmailData do
       add :event, :string
       add :event_id, :string
       add :message_id, :string
-      add :event_time, :string
+      add :event_hour, :string
+      add :event_date, :string
 
       timestamps()
     end

@@ -97,7 +97,8 @@ defmodule SendMailerWeb.EmailController do
     %{
       email: "#{email}", event: "#{event}", event_id: "#{event_id}",
       message_id: "#{message_id}",
-      event_time: "#{date_time()}"
+      event_hour: "#{utc_hour()}",
+      event_date: "#{utc_date()}"
     }
   end
 end

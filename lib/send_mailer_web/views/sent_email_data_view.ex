@@ -17,7 +17,8 @@ defmodule SendMailerWeb.SentEmailDataView do
       event: sent_email_data.event,
       event_id: sent_email_data.event_id,
       message_id: sent_email_data.message_id,
-      event_time: sent_email_data.event_time
+      event_hour: sent_email_data.event_hour,
+      event_date: sent_email_data.event_date
     }
   end
 end
