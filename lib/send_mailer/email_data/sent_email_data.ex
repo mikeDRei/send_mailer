@@ -8,7 +8,8 @@ defmodule SendMailer.EmailData.SentEmailData do
     field :event, :string
     field :event_id, :string
     field :message_id, :string
-    field :event_time, :string
+    field :event_hour, :string
+    field :event_date, :string
 
     timestamps()
   end
@@ -16,7 +17,7 @@ defmodule SendMailer.EmailData.SentEmailData do
   @doc false
   def changeset(sent_email_data, attrs) do
     sent_email_data
-    |> cast(attrs, [:email, :event, :event_time, :event_id, :message_id])
-    |> validate_required([:email, :event, :event_time, :message_id])
+    |> cast(attrs, [:email, :event, :event_hour, :event_date, :event_id, :message_id])
+    |> validate_required([:email, :event, :event_hour, :event_date, :message_id])
   end
 end
