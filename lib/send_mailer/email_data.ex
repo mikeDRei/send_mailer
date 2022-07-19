@@ -37,6 +37,12 @@ defmodule SendMailer.EmailData do
   """
   def get_sent_email_data!(id), do: Repo.get!(SentEmailData, id)
 
+  def get_email!(email) do
+    query = from sent in "sent_email_data",
+      where: u.email == ^email,
+      select: [:id, :email, :event_id, :event_time, :message_id]
+    Repo.all(query)
+  end
   @doc """
   Creates a sent_email_data.
 
