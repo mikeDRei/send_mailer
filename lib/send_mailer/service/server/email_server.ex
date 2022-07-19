@@ -18,7 +18,7 @@ defmodule SendMailer.Service.Server.EmailServer do
       end
         info("Email sent to sendgrid")
     rescue
-      e in RuntimeError -> IO.puts("An error occurred: " <> e)
+      e in RuntimeError -> IO.puts("An error occurred while sending email to sendgrid ")
     end
   end
 
